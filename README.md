@@ -39,3 +39,10 @@ sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 # ...and test install
 sudo docker run hello-world
 ```
+
+## Get metadata
+Download the metadata from this SRA project: https://www.ncbi.nlm.nih.gov/Traces/study/?acc=SRP170758&o=acc_s%3Aa
+
+Put into: `/reproducibility-tutorial/experiment/sra_files/metadata`
+
+

@@ -14,14 +14,18 @@ if [ -z `which conda` ]; then
 	sh Miniconda3-latest-Linux-x86_64.sh -b
 
 	# Initialize conda
-	~/miniconda3/bin/conda init
 	source ~/.bashrc
-	if [ -z `which conda` ]; then
-		echo "There was an issue with the conda install. Please try closing the terminal session and reopening and re-running this script."
-		exit 1
-	fi
+	eval "$(conda shell.bash hook)"
 else
 	echo "Miniconda appears to already be installed, continuing with setup"
+	# setup conda for the environment
+	eval "$(conda shell.bash hook)"
+fi
+
+# Double check that Conda is now available
+if [ -z `which conda` ]; then
+	echo "There was an issue with the conda install. Please try closing the terminal session and reopening and re-running this script."
+	exit 1
 fi
 
 # Setup bioconda and conda-forge channels 
@@ -38,6 +42,8 @@ cd ~
 wget https://data.qiime2.org/distro/core/qiime2-${QIIMEVER}-py36-linux-conda.yml
 conda env create -n qiime2-${QIIMEVER} --file qiime2-${QIIMEVER}-py36-linux-conda.yml
 conda activate qiime2-${QIIMEVER}
+
+# TODO: add a check that the qiime2 env is activated (possibly use `which python` and check the path)
 
 # Install other dependencies
 conda install -y snakemake biopython tabulate pandoc tabview bioconductor-msa bioconductor-odseq zip unzip

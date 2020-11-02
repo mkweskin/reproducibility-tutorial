@@ -21,6 +21,8 @@ else
 	echo "Miniconda appears to already be installed, continuing with setup"
 fi
 
+eval "$(~/miniconda3/bin/conda shell.bash hook)"
+
 # Double check that Conda is now available
 if [ -z `which conda` ]; then
 	echo "There was an issue with the conda install. Please try closing the terminal session and reopening and re-running this script."

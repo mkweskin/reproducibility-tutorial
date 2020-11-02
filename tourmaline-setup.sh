@@ -40,7 +40,7 @@ conda env create -n qiime2-${QIIMEVER} --file qiime2-${QIIMEVER}-py36-linux-cond
 conda activate qiime2-${QIIMEVER}
 
 # Install other dependencies
-conda install -y snakemake biopython tabulate pandoc tabview bioconductor-msa bioconductor-odseq
+conda install -y snakemake biopython tabulate pandoc tabview bioconductor-msa bioconductor-odseq zip unzip
 pip install git+https://github.com/biocore/empress.git
 
 # Clone the tourmaline repo into ~

@@ -1,5 +1,7 @@
 # Automated install of dependencies for Tourmaline: https://github.com/lukenoaa/tourmaline
 # Note: this is for lukenoaa's fork of tourmaline 
+# This should run as a standard user, not as root.
+# TODO: check that it's not running as root
 
 ###
 # Conda setup

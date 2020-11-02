@@ -14,12 +14,9 @@ if [ -z `which conda` ]; then
 	sh Miniconda3-latest-Linux-x86_64.sh -b
 
 	# Initialize conda
-	source ~/.bashrc
-	eval "$(conda shell.bash hook)"
+	~/miniconda3/bin/conda init
 else
 	echo "Miniconda appears to already be installed, continuing with setup"
-	# setup conda for the environment
-	eval "$(conda shell.bash hook)"
 fi
 
 # Double check that Conda is now available
@@ -57,4 +54,4 @@ echo "Tourmaline's dependecies have been installed in the 'qiime2-${QIIMEVER}' c
 echo "That environment is active, to reactivate when you reopen the terminal, use:"
 echo "   conda activate qiime2-${QIIMEVER}"
 
-echo "The tourmaline scripts have been installed in $PWD/tourmaline"
+echo "The tourmaline scripts have been installed in $PWD/tourmaline."
